@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Design Shop</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    {{> navigation}}
+    <section id="hero">
+        {{#each shopData}}
+        <a href="/single/{{_id}}" class="item">
+                <img src={{product_picture_link}} alt="">
+                <div class="info">
+                    <h2>{{product_name}}</h2>
+                    <h2>${{price}}</h2>
+                </div>
+                <h3>{{company}}</h3>
+        </a>
+        {{/each}}
+    </section>
+    {{> footer}}
+</body>
+
+</html>

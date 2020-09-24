@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Design Shop</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    {{> navigation}}
+    <section id="single">
+        {{#with singleItem}}
+        <div class="controls">
+            <a href="#edit" onclick="showEdit()">Edit</a>
+            <a href="/delete/{{_id}}">Delete</a>
+        </div>
+        <div class="singleItem">
+            <img src={{product_picture_link}} alt="">
+            <div class="info">
+                <h2>{{product_name}}</h2>
+                <h2>${{price}}</h2>
+            </div>
+            <h3>{{company}}</h3>
+            <h1>Product Description</h1>
+            <h4>{{description}}</h4>
+            <a href={{link_shop}} class="button" target="_blank">BUY PRODUCT</a>
+        </div>
+        <div id="edit">
+            <h1 class="bigly">EDIT PRODUCT</h1>
+            <form action="/edit/{{_id}}" method="POST">
+                <input type="text" name="product_name" id="product_name" value="{{product_name}}">
+                <input type="text" name="product_picture_link" id="product_picture_link" value="{{product_picture_link}}">
+                <input type="text" name="company" id="company" value="{{company}}">
+                <input type="text" name="price" id="price" value="{{price}}">
+                <input type="text" name="link_shop" id="link_shop" value="{{link_shop}}">
+                <textarea name="description" id="description" cols="30" rows="10">{{description}}</textarea>
+                <input type="submit" value="EDIT PRODUCT">
+            </form>
+        </div>
+        {{/with}}
+    </section>
+    {{> footer}}
+    <script>
+        let counter = 0
+        function showEdit() {
+            counter++
+            if (counter%2 === 1) {
+                document.getElementById("edit").style.display = "block"
+            } else{
+                document.getElementById("edit").style.display = "none"
+            }
+        }
+    </script>
+</body>
+
+</html>

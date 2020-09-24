@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    {{> navigation}}
+    <section id="new">
+        <h1 class="bigly">ADD A NEW PRODUCT</h1>
+        <div class="bar"></div>
+        <form action="/add" method="POST">
+            <input type="text" name="product_name" id="product_name" placeholder="Product-Name">
+            <input type="text" name="product_picture_link" id="product_picture_link" placeholder="Product-Picture-Link">
+            <input type="text" name="company" id="company" placeholder="Company">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="link_shop" id="link_shop" placeholder="Link-Shop">
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+            <input type="submit" value="ADD PRODUCT">
+        </form>
+    </section>
+    <div class="line">
+        <div class="eye">
+            <div class="ball"></div>
+        </div>
+        <div class="eye">
+            <div class="ball"></div>
+        </div>
+    </div>
+    <h1 class="bigly">RANDOM PRODUCT</h1>
+    {{> random}}
+    {{> footer}}
+</body>
+
+</html>
